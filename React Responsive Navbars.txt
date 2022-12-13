@@ -1,0 +1,238 @@
+without search bar
+import { Typography, Box } from "@mui/material";
+import React from "react";
+import "../css/Navbar.css";
+import logo from "../logo.png";
+import ClearIcon from "@mui/icons-material/Clear";
+import DensityMediumIcon from "@mui/icons-material/DensityMedium";
+export default function Navbar() {
+  const clickOnClose = () => {
+    let navLinks = document.getElementById("navLinks");
+    navLinks.style.right = "-200px";
+  };
+  const clickOnOpen = () => {
+    let navLinks = document.getElementById("navLinks");
+    navLinks.style.right = "0";
+  };
+  return (
+    <nav>
+      <a>
+        <img src={logo} alt="logo" />
+      </a>
+      {/* <div>
+        <input type="text" className="input" />
+      </div> */}
+      <div class="nav-links" id="navLinks">
+        <ClearIcon className="fa" onClick={clickOnClose} />
+        <ul>
+          <li>HOME</li>
+          <li>ABOUT</li>
+          <li>COURSE</li>
+          <li>BLOG</li>
+          <li>CONTACT</li>
+        </ul>
+      </div>
+      <DensityMediumIcon className="fa" onClick={clickOnOpen} />
+    </nav>
+  );
+}
+----
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=Playfair+Display:wght@600&family=Poppins:wght@100;200;300;400;600;700&family=Source+Code+Pro:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: blueviolet;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+nav .fa {
+  display: none;
+}
+nav img {
+  width: 150px;
+}
+.nav-links {
+  text-align: right;
+}
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+  font-size: 16px;
+}
+.input {
+  width: 374px;
+}
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+@media only screen and (max-width: 700px) {
+  .text-box h1 {
+    font-size: 23px;
+  }
+  .nav-links ul li {
+    display: block;
+  }
+  .nav-links {
+    position: fixed;
+    background: #f44336;
+    height: 100vh;
+    width: 200px;
+    /* right: 0; */
+    /*-200px yaha pr is lye likha taky ye pora div(nav-links) ka hide hu jai*/
+    right: -200px;
+    top: 0;
+    text-align: left;
+    z-index: 2;
+    transition: 1s;
+  }
+  /*yaha pr html,body me overflow ki property is lye di ha kyu k upr nav-links me -200 right krny sy screen overflow hu rhi thi,now by this,it will removed */
+  /* html,
+  body {
+    overflow-x: hidden;
+  } */
+  nav .fa {
+    display: block;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .nav-links ul {
+    padding: 30px;
+  }
+}
+------------------
+with search bar
+import { Typography, Box } from "@mui/material";
+import React from "react";
+import "../css/Navbar.css";
+import logo from "../logo.png";
+import ClearIcon from "@mui/icons-material/Clear";
+import DensityMediumIcon from "@mui/icons-material/DensityMedium";
+export default function Navbar() {
+  const clickOnClose = () => {
+    let navLinks = document.getElementById("navLinks");
+    navLinks.style.left = "-200px";
+  };
+  const clickOnOpen = () => {
+    let navLinks = document.getElementById("navLinks");
+    navLinks.style.left = "0";
+  };
+  return (
+    <nav>
+      <div style={{ "display": "flex" }}>
+        <DensityMediumIcon className="fa" onClick={clickOnOpen} />
+
+        <img src={logo} alt="logo" />
+      </div>
+      <div>
+        <input type="text" className="input" />
+      </div>
+      <div class="nav-links" id="navLinks">
+        <ClearIcon className="fa" onClick={clickOnClose} />
+        <ul>
+          <li>HOME</li>
+          <li>ABOUT</li>
+          <li>COURSE</li>
+          <li>BLOG</li>
+          <li>CONTACT</li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=Playfair+Display:wght@600&family=Poppins:wght@100;200;300;400;600;700&family=Source+Code+Pro:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: blueviolet;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+nav .fa {
+  display: none;
+}
+nav img {
+  width: 150px;
+}
+.nav-links {
+  text-align: right;
+}
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+  font-size: 16px;
+}
+.input {
+  width: 25vw;
+}
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+@media only screen and (max-width: 700px) {
+  .text-box h1 {
+    font-size: 23px;
+  }
+  .nav-links ul li {
+    display: block;
+  }
+  .nav-links {
+    position: fixed;
+    background: #f44336;
+    height: 100vh;
+    width: 200px;
+    /* right: 0; */
+    /*-200px yaha pr is lye likha taky ye pora div(nav-links) ka hide hu jai*/
+    left: -200px;
+    top: 0;
+    text-align: left;
+    z-index: 2;
+    transition: 1s;
+  }
+  /*yaha pr html,body me overflow ki property is lye di ha kyu k upr nav-links me -200 right krny sy screen overflow hu rhi thi,now by this,it will removed */
+  /* html,
+  body {
+    overflow-x: hidden;
+  } */
+  nav .fa {
+    display: block;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .nav-links ul {
+    padding: 30px;
+  }
+}
+
